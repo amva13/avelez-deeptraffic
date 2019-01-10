@@ -2,9 +2,9 @@
 
 // a few things don't have var in front of them - they update already existing variables the game needs
 lanesSide = 2;
-patchesAhead = 10;
+patchesAhead = 30;
 patchesBehind = 0;
-trainIterations = 30000;
+trainIterations = 45000;
 
 // the number of other autonomous vehicles controlled by your network
 otherAgents = 0; // max of 10
@@ -14,6 +14,7 @@ var num_actions = 5;
 var temporal_window = 0;
 var network_size = num_inputs * temporal_window + num_actions * temporal_window + num_inputs;
 var num_hidden_neurons = Math.floor((num_inputs+num_actions)/2)
+var num_hidden_neurons_2 = Math.floor((num_hidden_neurons+num_actions)/2)
 
 var layer_defs = [];
     layer_defs.push({
@@ -25,6 +26,11 @@ var layer_defs = [];
 layer_defs.push({
     type: 'fc',
     num_neurons: num_hidden_neurons,
+    activation: 'relu'
+});
+layer_defs.push({
+    type: 'fc',
+    num_neurons: num_hidden_neurons_2,
     activation: 'relu'
 });
 layer_defs.push({
@@ -66,4 +72,4 @@ return action;
 //]]>
 
 // default avg speed is ~66.15
-// new is 68 mph (in last commit)
+// new is 68.83 mph (in last commit)
