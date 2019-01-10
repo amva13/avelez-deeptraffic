@@ -1,7 +1,7 @@
 //<![CDATA[
 
 // a few things don't have var in front of them - they update already existing variables the game needs
-lanesSide = 1;
+lanesSide = 2;
 patchesAhead = 10;
 patchesBehind = 0;
 trainIterations = 30000;
@@ -66,4 +66,4 @@ return action;
 //]]>
 
 // default avg speed is ~66.15
-// new is 67.5 mph
+// new is 68 mph (in last commit)
