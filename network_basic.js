@@ -13,6 +13,7 @@ var num_inputs = (lanesSide * 2 + 1) * (patchesAhead + patchesBehind);
 var num_actions = 5;
 var temporal_window = 0;
 var network_size = num_inputs * temporal_window + num_actions * temporal_window + num_inputs;
+var num_hidden_neurons = Math.floor((num_inputs+num_actions)/2)
 
 var layer_defs = [];
     layer_defs.push({
@@ -23,7 +24,7 @@ var layer_defs = [];
 });
 layer_defs.push({
     type: 'fc',
-    num_neurons: 10,
+    num_neurons: num_hidden_neurons,
     activation: 'relu'
 });
 layer_defs.push({
@@ -63,3 +64,6 @@ return action;
 }
 
 //]]>
+
+// default avg speed is ~66.15
+// new is 67.5 mph
